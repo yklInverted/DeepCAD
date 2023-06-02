@@ -2,6 +2,7 @@ import os
 import glob
 import json
 import h5py
+import ipdb
 import numpy as np
 from OCC.Core.BRepCheck import BRepCheck_Analyzer
 from OCC.Extend.DataExchange import read_step_file, write_step_file
@@ -30,6 +31,7 @@ if args.num != -1:
 save_dir = args.src + "_step" if args.outputs is None else args.outputs
 ensure_dir(save_dir)
 
+#ipdb.set_trace()
 for path in out_paths:
     print(path)
     try:
@@ -54,7 +56,8 @@ for path in out_paths:
             print("detect invalid.")
             continue
     
-    name = path.split("/")[-1].split(".")[0]
+    name = os.path.basename(path).split(".")[0]
     save_path = os.path.join(save_dir, name + ".step")
+    #ipdb.set_trace()
     write_step_file(out_shape, save_path)
 
