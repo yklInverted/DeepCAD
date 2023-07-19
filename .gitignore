@@ -1,5 +1,11 @@
 **__pycache__
 *.pyc
+*.png
+*.jpg
+*.mp4
+*.npy
+*.npz
+
 data
 outputs
 proj_log

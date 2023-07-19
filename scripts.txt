@@ -1,4 +1,6 @@
 测试生成
-python export2step.py --src D:/work/RemoteWorks/CAD/DeepCAD/proj_log/pretrained/lgan_1000/results/fake_z_ckpt200000_num9000_dec --num -1 -o ../outputs
+python export2step.py --src D:/work/RemoteWorks/CAD/DeepCAD/proj_log/pretrained/lgan_1000/results/fake_z_ckpt200000_num9000_dec --num -1 -o ../outputs/gan
 
 测试还原
+python test.py --exp_name pretrained --mode rec --ckpt 1000 -g 0
+python export2step.py --src D:/work/RemoteWorks/CAD/DeepCAD/proj_log/pretrained/results/test_1000 --num -1 -o ../outputs/test
