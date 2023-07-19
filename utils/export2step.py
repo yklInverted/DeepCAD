@@ -32,6 +32,8 @@ save_dir = args.src + "_step" if args.outputs is None else args.outputs
 ensure_dir(save_dir)
 
 #ipdb.set_trace()
+# Calculate how many .h5 files fail to export 
+count = 0
 for path in out_paths:
     print(path)
     try:
@@ -59,5 +61,10 @@ for path in out_paths:
     name = os.path.basename(path).split(".")[0]
     save_path = os.path.join(save_dir, name + ".step")
     #ipdb.set_trace()
-    write_step_file(out_shape, save_path)
+    if not out_shape is None:
+        write_step_file(out_shape, save_path)
+    else:
+        count = count + 1
+print(count)
+
 
